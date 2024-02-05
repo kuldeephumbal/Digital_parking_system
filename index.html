@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand fs-4" href="index.html"><i class="fa-solid fa-square-parking fa-lg ms-2"></i>
+                Parking
+                management</a>
+            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end fs-6" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item ms-1">
+                        <button type="button" class="btn btn-outline-primary me-2 mb-2" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Login
+                        </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header text-bg-primary">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Login form</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="dashboard.html">
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Enter your email address" required />
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid email address.
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password">Password:</label>
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control" id="password"
+                                                        name="password" placeholder="Enter your password" required>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid password.
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <input type="submit" value="submit" class="btn btn-primary mt-3" />
+                                                <p>Not have an account?<button type="button" class="btn btn-link mb-2"
+                                                        data-bs-target="#exampleModal2" data-bs-toggle="modal">Signup
+                                                        now</button></p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item ms-1">
+                        <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2">
+                            Sign up
+                        </button>
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header text-bg-primary">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Signup</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="dashboard.html">
+                                            <div class="mb-3">
+                                                <label for="firstname" class="form-label">First name</label>
+                                                <input type="text" class="form-control" id="firstname"
+                                                    placeholder="Enter your first name" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lastname" class="form-label">Last name</label>
+                                                <input type="text" class="form-control" id="lastname"
+                                                    placeholder="Enter your last name" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="email2" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email2"
+                                                    placeholder="Enter your email address" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password2" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="password2"
+                                                    placeholder="Enter your password" required />
+                                            </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <input type="submit" value="Submit2" class="btn btn-primary" />
+                                        <p>Already have an account? <button type="button" class="btn btn-link mb-2"
+                                                data-bs-target="#exampleModal" data-bs-toggle="modal">Login now</button>
+                                        </p>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid custom-main">
+            <div class="row">
+                <div class="col-12">
+                    <div class="center-container">
+                        <img src="image/parking symbol.jpg" class="img-fluid img-thumbnail mt-5" />
+                    </div>
+                </div>
+                <div class="col-12 mt-4">
+                    <div class="text-dark text-center fs-1">Welcome to</div>
+                    <div class="text-dark text-center fs-1">Digital parking management system</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
