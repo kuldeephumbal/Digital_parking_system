@@ -12,7 +12,7 @@ function Dashboard() {
                         <th>Vehicle reg number</th>
                     </tr>
                 </thead>
-                <tbody id="output">
+                <tbody>
     
                 </tbody>
             </table>
@@ -31,40 +31,33 @@ function Addvehicle() {
             <div class="row mb-3">
                 <label for="vehiclename" class="col-sm-2 col-form-label">Vehicle name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="vehiclename"
-                        placeholder="Enter the name of vehicle" required />
+                    <input type="text" class="form-control" id="vehiclename" placeholder="Enter the name of vehicle" required />
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="registration" class="col-sm-2 col-form-label">Registration
                     number</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="registration"
-                        placeholder="Enter the registration number" required />
+                    <input type="text" class="form-control" id="registration" placeholder="Enter the registration number" required />
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="ownername" class="col-sm-2 col-form-label">Owner name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="ownername"
-                        placeholder="Enter your name" required />
+                    <input type="text" class="form-control" id="ownername" placeholder="Enter your name" required />
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="ownercontact" class="col-sm-2 col-form-label">Owner contact
                     number</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="ownercontact"
-                        placeholder="Enter your contact number" required />
-                    <div class="invalid-feedback" id="invalid_contact">
-
-                    </div>          
+                    <input type="number" class="form-control" id="ownercontact" placeholder="Enter your contact number" required />
+                    <div class="invalid-feedback" id="invalid_contact"></div> <!-- Error message container -->
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 text-center">
-                    <button type="submit" value="Add vehicle" name="submit" id="submit"
-                        class="btn btn-primary">Add vehicle</button>
+                <div class="col-12 text-center" id="button">
+                    <button type="submit" class="btn btn-primary">Add vehicle</button>
                 </div>
             </div>
         </form>
@@ -108,9 +101,7 @@ function Category() {
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <button type="submit" value="Add vehicle" name="submit" id="submit"
-                            class="btn btn-primary">Add
-                            vehicle</button>
+                        <button type="submit" value="Add vehicle" name="submit" id="submit" class="btn btn-primary">Add vehicle</button>
                     </div>
                 </div>
             </form>
@@ -152,62 +143,85 @@ Option('Addvehicle');
 Option('Dashboard');
 
 var count = 1;
-var activerow;
+class details {
+    constructor(vehiclename, registration, ownername, tr) {
+        this.vehiclename = vehiclename;
+            this.registration = registration;
+            this.ownername = ownername;
+            this.tr = `<tr id="tr">
+                            <td>${count}</td> 
+                            <td>${this.vehiclename}</td>
+                            <td>${this.registration}</td>  
+                            <td>${this.ownername}</td>
+                            <td><button type="button" class="btn" onclick="Edit();"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button type="button" class="btn" onclick="Delete(this.parentNode.parentNode);"><i class="fa-solid fa-trash"></i></button></td>
+                            </tr>`;
+        document.getElementById("output").innerHTML += this.tr;
+        count++;
+
+    }
+    display() {
+        console.log(this.vehiclename, this.registration, this.ownername);
+    }
+}
 function AddVehicle() {
+    // console.log("submited....")
     let vehiclename = document.getElementById("vehiclename").value;
     let registration = document.getElementById("registration").value;
     let ownername = document.getElementById("ownername").value;
     let ownercontact = document.getElementById("ownercontact").value;
-    // console.log(vehiclename, registration, ownername);
-    // if (ownercontact.length !== 10) 
-    // {
-    //     document.getElementById("invalid_contact").innerHTML = "Invalid mobile number (should be 10 digits)";
-    //     // return false; // Prevent form submission
-    // } else 
-    // {
-    //     document.getElementById("invalid_contact").innerHTML = "";
-    // }
-    if (document.getElementById("submit").value === "Add vehicle") {
-        document.getElementById("output").innerHTML += `<tr id="tr-${count}">
-                       <td>${count}</td> 
-                       <td>${vehiclename}</td>
-                       <td>${registration}</td>  
-                       <td>${ownername}</td>
-                       <td><button type="button" class="btn btn-danger" onclick="Delete('tr-${count}');">Delete</button>
-                       <button type="button" class="btn btn-info" onclick="Edit(this);">Edit</button></td>
-                       </tr>`
-        count++;
+
+    // Validate contact number
+    if (ownercontact.length !== 10 || isNaN(ownercontact)) {
+        document.getElementById("invalid_contact").innerHTML = "Invalid mobile number (should be 10 digits)";
+        return false; // Prevent form submission
+    } else {
+        document.getElementById("invalid_contact").innerHTML = ""; // Clear error message if validation succeeds
     }
-    else {
-        document.getElementById(activerow).cells[0].innerHTML = count;
-        document.getElementById(activerow).cells[1].innerHTML = vehiclename;
-        document.getElementById(activerow).cells[2].innerHTML = ownername;
-        document.getElementById(activerow).cells[3].innerHTML = registration;
-        document.getElementById("submit").value = "Add vehicle";
-    }
+
+    let d1 = new details(vehiclename, registration, ownername);
+    d1.display();
+
     document.getElementById("vehiclename").value = '';
     document.getElementById("registration").value = '';
     document.getElementById("ownername").value = '';
     document.getElementById("ownercontact").value = '';
 
     return false;
+
 }
-function Delete(trId) {
-    // console.log("product has been deleted ", trId);
-    document.getElementById(trId).remove();
+function Delete(tr) {
+    if (confirm("Are you sure you want to Delete this data")) {
+        tr.remove();
+    }
 }
-function Edit(button) {
-    // console.log("Edit function called....");
-    let tr = button.parentNode.parentNode;
-    activerow = tr.getAttribute('id');
-    let count = tr.cells[0].innerHTML;
-    let vehiclename = tr.cells[1].innerHTML;
-    let registration = tr.cells[2].innerHTML;
-    let ownername = tr.cells[3].innerHTML;
-    // console.log(vehiclename, ownername, registration);
+function Edit() {
+    // alert("Edit button is clicked successfully....");
+    let tr = document.getElementById("tr").children;
+    // console.log(tr);
+    let vehiclename = tr[1].innerHTML;
+    let registration = tr[2].innerHTML;
+    let ownername = tr[3].innerHTML;
+    console.log(vehiclename, registration, ownername);
 
     document.getElementById("vehiclename").value = vehiclename;
     document.getElementById("registration").value = registration;
     document.getElementById("ownername").value = ownername;
-    document.getElementById("submit").innerHTML = "save change";
+
+    document.getElementById("button").innerHTML = `<button type="button" onclick="Update();" class="btn btn-success">Save change</button>`;
+
+}
+function Update() {
+    // console.log("update function called...");
+    let tr = document.getElementById("tr").children;
+
+    tr[1].innerHTML = document.getElementById("vehiclename").value;
+    tr[2].innerHTML = document.getElementById("registration").value;
+    tr[3].innerHTML = document.getElementById("ownername").value;
+
+    document.getElementById("vehiclename").value = '';
+    document.getElementById("registration").value = '';
+    document.getElementById("ownername").value = '';
+
+    document.getElementById("button").innerHTML = `<button type="submit" class="btn btn-primary">Add Vehicle</button>`;
 }

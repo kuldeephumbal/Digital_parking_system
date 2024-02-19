@@ -1,9 +1,11 @@
 html {
     height: 100vh;
+    overflow: auto;
 }
 
 body {
     height: 100%;
+    overflow:auto
 }
 
 /* .navbar {
@@ -15,6 +17,7 @@ body {
     width: 100%;
     background-size: cover;
     background-position: center;
+    /* min-height: calc(100vh - 102px); */
     /* overflow: scroll; */
     
 }
