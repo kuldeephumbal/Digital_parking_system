@@ -172,12 +172,12 @@ function AddVehicle() {
     let ownercontact = document.getElementById("ownercontact").value;
 
     // Validate contact number
-    if (ownercontact.length !== 10 || isNaN(ownercontact)) {
-        document.getElementById("invalid_contact").innerHTML = "Invalid mobile number (should be 10 digits)";
-        return false; // Prevent form submission
-    } else {
-        document.getElementById("invalid_contact").innerHTML = ""; // Clear error message if validation succeeds
-    }
+    // if (ownercontact.length !== 10 || isNaN(ownercontact)) {
+    //     document.getElementById("invalid_contact").innerHTML = "Invalid mobile number (should be 10 digits)";
+    //     return false; // Prevent form submission
+    // } else {
+    //     document.getElementById("invalid_contact").innerHTML = ""; // Clear error message if validation succeeds
+    // }
 
     let d1 = new details(vehiclename, registration, ownername);
     d1.display();
@@ -191,7 +191,7 @@ function AddVehicle() {
 
 }
 function Delete(tr) {
-    if (confirm("Are you sure you want to Delete this data")) {
+    if (confirm("Are you sure you want to delete?")) {
         tr.remove();
     }
 }
