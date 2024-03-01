@@ -22,7 +22,7 @@ function Dashboard() {
 function Addvehicle() {
     document.getElementById("output2").innerHTML = `<div class="row mb-3">
     <div class="col-12">
-        <form method="post" onsubmit="return AddVehicle();">
+        <form method="post" onsubmit="return AddVehicle();" novalidate>
             <div class="row mb-3">
                 <div class="col-12">
                     <h1>Add Vehicle</h1>
@@ -32,6 +32,7 @@ function Addvehicle() {
                 <label for="vehiclename" class="col-sm-2 col-form-label">Vehicle name</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="vehiclename" placeholder="Enter the name of vehicle" required />
+                    <div class="invalid-feedback" id="invalid_vehiclename"></div> 
                 </div>
             </div>
             <div class="row mb-3">
@@ -39,12 +40,14 @@ function Addvehicle() {
                     number</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="registration" placeholder="Enter the registration number" required />
+                    <div class="invalid-feedback" id="invalid_regnumber"></div>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="ownername" class="col-sm-2 col-form-label">Owner name</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="ownername" placeholder="Enter your name" required />
+                    <div class="invalid-feedback" id="invalid_ownername"></div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -52,7 +55,7 @@ function Addvehicle() {
                     number</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" id="ownercontact" placeholder="Enter your contact number" required />
-                    <div class="invalid-feedback" id="invalid_contact"></div> <!-- Error message container -->
+                    <div class="invalid-feedback" id="invalid_contact"></div> 
                 </div>
             </div>
             <div class="row">
@@ -171,14 +174,65 @@ function AddVehicle() {
     let ownername = document.getElementById("ownername").value;
     let ownercontact = document.getElementById("ownercontact").value;
 
-    // Validate contact number
-    // if (ownercontact.length !== 10 || isNaN(ownercontact)) {
-    //     document.getElementById("invalid_contact").innerHTML = "Invalid mobile number (should be 10 digits)";
+    // console.log(vehiclename, registration, ownername, ownercontact);
+    // if (vehiclename === "" && !/^([A-Z]{2}\s\d{2}\s[A-Z]{1,2}\s\d{4})$/.test(registration) || registration === "" && ownername === "" && ownercontact.length !== 
+    //  10 || isNaN(ownercontact) || ownercontact === "") {
+    //     document.getElementById("vehiclename").classList.add("is-invalid");
+    //     document.getElementById("invalid_vehiclename").innerHTML = "Please enter your vehicle name";
+    //     document.getElementById("registration").classList.add("is-invalid");
+    //     document.getElementById("invalid_regnumber").innerHTML = "Please enter a valid vehicle registration number";
+    //     document.getElementById("ownername").classList.add("is-invalid");
+    //     document.getElementById("invalid_ownername").innerHTML = "Please enter your name";
+    //     document.getElementById("ownercontact").classList.add("is-invalid");
+    //     document.getElementById("invalid_contact").innerHTML = "Please enter valid contact number";
     //     return false; // Prevent form submission
-    // } else {
-    //     document.getElementById("invalid_contact").innerHTML = ""; // Clear error message if validation succeeds
     // }
-
+    // else {
+    //     document.getElementById("vehiclename").classList.remove("is-invalid");
+    //     document.getElementById("invalid_vehiclename").innerHTML = "";
+    //     document.getElementById("registration").classList.remove("is-invalid");
+    //     document.getElementById("invalid_regnumber").innerHTML = "";
+    //     document.getElementById("ownername").classList.remove("is-invalid");
+    //     document.getElementById("invalid_ownername").innerHTML = "";
+    //     document.getElementById("ownercontact").classList.remove("is-invalid");
+    //     document.getElementById("invalid_contact").innerHTML = "";
+    // }
+    
+    if (vehiclename === "") {
+        document.getElementById("vehiclename").classList.add("is-invalid");
+        document.getElementById("invalid_vehiclename").innerHTML = "Please enter your vehicle name";
+        return false;
+    }
+    else {
+        document.getElementById("vehiclename").classList.remove("is-invalid");
+        document.getElementById("invalid_vehiclename").innerHTML = "";
+    }
+    if (!/^([A-Z]{2}\s\d{2}\s[A-Z]{1,2}\s\d{4})$/.test(registration) || registration === "") {
+        document.getElementById("registration").classList.add("is-invalid");
+        document.getElementById("invalid_regnumber").innerHTML = "Please enter a valid vehicle registration number";
+        return false; 
+    } else {
+        document.getElementById("registration").classList.remove("is-invalid");
+        document.getElementById("invalid_regnumber").innerHTML = "";
+    }
+    if (ownername === "") {
+        document.getElementById("ownername").classList.add("is-invalid");
+        document.getElementById("invalid_ownername").innerHTML = "Please enter your name";
+        return false; 
+    }
+    else {
+        document.getElementById("ownername").classList.remove("is-invalid");
+        document.getElementById("invalid_ownername").innerHTML = "";
+    }
+    if (ownercontact.length !== 10 || isNaN(ownercontact) || ownercontact === "") {
+        document.getElementById("ownercontact").classList.add("is-invalid");
+        document.getElementById("invalid_contact").innerHTML = "Please enter valid contact number";
+        return false; 
+    } else {
+        document.getElementById("invalid_contact").innerHTML = "";
+        document.getElementById("ownercontact").classList.remove("is-invalid");
+    }
+    
     let d1 = new details(vehiclename, registration, ownername);
     d1.display();
 

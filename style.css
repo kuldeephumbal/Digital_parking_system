@@ -1,18 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 html {
     height: 100vh;
     overflow: auto;
+    scroll-behavior: smooth;
 }
 
 body {
     height: 100%;
-    overflow:auto
+    overflow:auto;
+    scroll-behavior: smooth;
 }
 
 /* .navbar {
     height: 80px;
   } */
 .custom-main {
-    background-image: url(image/background.jpg);
+    background-image: url(image/background\ 3.jpg);
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -26,4 +35,4 @@ body {
     display: flex;
     justify-content: center;
 }
-
+  
