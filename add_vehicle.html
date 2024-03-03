@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add vehicle</title>
+    <link rel="icon" type="image/png" sizes="640x640"
+        href="assets/img/g0fe3efca5e08dfb0e6770d04a7d03eebfa62c5f44b8f458f3a780202fa7ca7359b091ea098274e59017ccec0401cd786_640.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-body shadow-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex justify-content-center align-items-center fs-4" href="dashboard.html"
+                    style="font-family: 'Libre Franklin', sans-serif;">
+                    <i class="fa-solid fa-square-parking fa-lg me-1"></i>Parking management
+                </a>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+                    <span class="visually-hidden">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navcol-2"
+                    style="font-family: 'Libre Franklin', sans-serif;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item text-dark">
+                            <a class="nav-link active" href="dashboard.html"><i class="fa-solid fa-display"></i>
+                                Dashboard</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center pe-2">
+                            <a class="nav-link" href="add_vehicle.html"><i class="fa-solid fa-list"></i> Add vehicle</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center pe-2">
+                            <a class="nav-link" href="pricing.html"><i class="fa-solid fa-bolt"></i> Pricing</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center pe-2">
+                            <a class="nav-link" href="contact.html"><i class="fa-solid fa-address-book"></i> Contact
+                                us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="profile.html"><i class="fa-solid fa-user fa-lg"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main style="font-family: 'Libre Franklin', sans-serif;">
+        <div class="container">
+            <div class="row mt-5 mb-3">
+                <div class="col-12">
+                    <form method="post" onsubmit="return AddVehicle();" novalidate>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <h1>Add Vehicle</h1>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="vehiclename" class="col-sm-2 col-form-label">Vehicle name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="vehiclename" placeholder="Enter the name of vehicle" required />
+                                <div class="invalid-feedback" id="invalid_vehiclename"></div> 
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="registration" class="col-sm-2 col-form-label">Registration
+                                number</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="registration" placeholder="Enter the registration number" required />
+                                <div class="invalid-feedback" id="invalid_regnumber"></div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="ownername" class="col-sm-2 col-form-label">Owner name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ownername" placeholder="Enter your name" required />
+                                <div class="invalid-feedback" id="invalid_ownername"></div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="ownercontact" class="col-sm-2 col-form-label">Owner contact
+                                number</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="ownercontact" placeholder="Enter your contact number" required />
+                                <div class="invalid-feedback" id="invalid_contact"></div> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center" id="button">
+                                <button type="submit" class="btn btn-primary">Add vehicle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Vehicle name</th>
+                                <th>Vehicle Reg.No</th>
+                                <th>Owner name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output">
+            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/vehicle.js"></script>
+    <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

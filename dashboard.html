@@ -1,70 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="light" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" sizes="640x640"
+        href="assets/img/g0fe3efca5e08dfb0e6770d04a7d03eebfa62c5f44b8f458f3a780202fa7ca7359b091ea098274e59017ccec0401cd786_640.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
     <header>
-        <nav class="nav shadow-lg p-3 mb-5 d-flex align-items-center justify-content-between">
-            <a class="navbar-brand fs-4" href="dashboard.html"><i class="fa-solid fa-square-parking"></i> Parking
-                management
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown pe-3">
-                    <a class="nav-link d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <i class="fa-solid fa-user fa-xl"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <a class="dropdown-item" href="users-profile.html">
-                                <i class="fa-solid fa-address-card me-1"></i>My profile
-                            </a>
+        <nav class="navbar navbar-expand-md bg-body shadow-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex justify-content-center align-items-center fs-4"
+                    href="dashboard.html" style="font-family: 'Libre Franklin', sans-serif;"> 
+                    <i class="fa-solid fa-square-parking fa-lg me-1"></i>Parking management
+                </a>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+                    <span class="visually-hidden">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navcol-2"
+                    style="font-family: 'Libre Franklin', sans-serif;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item text-dark">
+                            <a class="nav-link active" href="dashboard.html"><i class="fa-solid fa-display"></i> Dashboard</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="index.html">
-                                <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Log out
-                            </a>
+                        <li class="nav-item d-flex align-items-center pe-2">
+                            <a class="nav-link" href="add_vehicle.html"><i class="fa-solid fa-list"></i> Add vehicle</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center pe-2">
+                            <a class="nav-link" href="pricing.html"><i class="fa-solid fa-bolt"></i> Pricing</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center pe-2">
+                            <a class="nav-link" href="contact.html"><i class="fa-solid fa-address-book"></i> Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="profile.html"><i class="fa-solid fa-user fa-lg"></i></a>
                         </li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-8 col-12" id="sidebar">
-                    <a href="#" onclick="Option('Dashboard');" class="btn"><i class="fa-solid fa-display fa-lg"></i>
-                        Dashboard</a>
-                    <a href="#" onclick="Option('Category');" class="btn"><i class="fa-solid fa-list fa-lg"></i>
-                        Vehicle category</a>
-                    <a href="#" onclick="Option('Addvehicle');" class="btn"><i
-                            class="fa-regular fa-square-plus fa-lg"></i> Add
-                        vehicle</a>
-                    <a href="#" class="btn"><i class="fa-solid fa-bars-progress fa-lg"></i> Manage
-                        vehicle</a>
-                    <a href="#" onclick="Option('Review');" class="btn"><i class="fa-solid fa-star fa-lg"></i></i>
-                        Review</a>
+        <div class="container">
+            <div class="row" style="font-family: 'Libre Franklin', sans-serif;">
+                <div class="col col-12 mt-5">
+                    <h1>Dashboard</h1>
                 </div>
-                <div class="col-xl-10 col-lg-10 col-md-6 col-sm-4 col-12 mt-2" id="output2">
-
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sr. no.</th>
+                                    <th>Owner name</th>
+                                    <th>Vehicle name</th>
+                                    <th>Vehicle reg no.</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
-    <script src="vehicle.js"></script>
 </body>
 
 </html>
