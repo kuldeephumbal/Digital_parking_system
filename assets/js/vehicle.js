@@ -7,7 +7,7 @@ class details {
             this.tr = `<tr id="tr">
                             <td>${count}</td> 
                             <td>${this.vehiclename}</td>
-                            <td>${this.registration}</td>  
+                            <td colspan="1">${this.registration}</td>  
                             <td>${this.ownername}</td>
                             <td><button type="button" class="btn" onclick="Edit();"><i class="fa-solid fa-pen-to-square"></i></button>
                             <button type="button" class="btn" onclick="Delete(this.parentNode.parentNode);"><i class="fa-solid fa-trash"></i></button></td>
