@@ -1,6 +1,19 @@
 *, ::after, ::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+.navbar-brand {
+  white-space: nowrap; /* Prevent the brand name from wrapping */
+}
+main {
+  height: 100vh; /* Make main section take full viewport height */
+}
+.container {
+  max-width: 100%; /* Ensure container takes full width */
 }
 
