@@ -3,24 +3,44 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Parking management</title>
-    <link rel="icon" type="image/png" sizes="640x640"
-        href="assets/img/g0fe3efca5e08dfb0e6770d04a7d03eebfa62c5f44b8f458f3a780202fa7ca7359b091ea098274e59017ccec0401cd786_640.png">
+    <title>Parking Management</title>
+    <link rel="icon" type="image/png" sizes="640x640" href="assets/img/g0fe3efca5e08dfb0e6770d04a7d03eebfa62c5f44b8f458f3a780202fa7ca7359b091ea098274e59017ccec0401cd786_640.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin&amp;display=swap">
     <link rel="stylesheet" href="assets/css/aos.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        .navbar-brand {
+            white-space: nowrap; /* Prevent the brand name from wrapping */
+        }
+        main {
+            height: 100vh; /* Make main section take full viewport height */
+            background: url('assets/img/background%203.jpg') center / cover no-repeat;
+        }
+        .container {
+            max-width: 100%; /* Ensure container takes full width */
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-md bg-body shadow" style="font-family: 'Libre Franklin', sans-serif;">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex justify-content-center align-items-center fs-4" href="index.html">
-                    <i class="fa-solid fa-square-parking fa-lg me-1"></i> Parking management
+                    <i class="fa-solid fa-square-parking fa-lg me-1"></i> Parking Management
                 </a>
-                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span
-                        class="visually-hidden">Toggle navigation</span><span
-                        class="navbar-toggler-icon"></span></button>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+                    <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navcol-2">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="login.html" class="btn btn-outline-dark me-1 mb-1">Log in</a></li>
@@ -30,18 +50,15 @@
             </div>
         </nav>
     </header>
-    <main id="main" style="background: url(&quot;assets/img/background%203.jpg&quot;) center / cover no-repeat;font-family: 'Libre Franklin', sans-serif;">
-        <div class="container">
-            <div class="row" style="font-family: 'Libre Franklin', sans-serif;">
-                <div class="col col-12">
-                    <div class="d-flex justify-content-center"><img data-aos="fade-down" data-aos-duration="700"
-                            class="mt-5 img-fluid img-thumbnail" src="assets/img/parking%20symbol%203.jpg"></div>
+    <main id="main">
+        <div class="container h-100 d-flex flex-column justify-content-center">
+            <div class="row text-center">
+                <div class="col-12">
+                    <img data-aos="fade-down" data-aos-duration="700" class="mt-5 img-fluid img-thumbnail" src="assets/img/parking%20symbol%203.jpg" alt="Parking Symbol">
                 </div>
                 <div class="col mt-4">
-                    <h1 data-aos="fade-right" data-aos-duration="700" data-aos-delay="500"
-                        class="text-light fw-bold text-center fs-1">We have best daels for parking lots!</h1>
-                    <p data-aos="fade-left" data-aos-duration="700" data-aos-delay="700"
-                        class="text-light text-center fs-4">Instantly book your space today.</p>
+                    <h1 data-aos="fade-right" data-aos-duration="700" data-aos-delay="500" class="text-light fw-bold fs-1">We have best deals for parking lots!</h1>
+                    <p data-aos="fade-left" data-aos-duration="700" data-aos-delay="700" class="text-light fs-4">Instantly book your space today.</p>
                 </div>
             </div>
         </div>
