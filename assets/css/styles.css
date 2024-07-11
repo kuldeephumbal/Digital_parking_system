@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal overflow */
-  width: 100vw; /* Ensure full viewport width */
+  width: 100%; /* Ensure full viewport width */
 }
 header, main, footer {
   width: 100%; /* Ensure full width */
