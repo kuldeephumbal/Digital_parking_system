@@ -16,7 +16,6 @@ header, main, footer {
 }
 main {
   height: 100vh; /* Make main section take full viewport height */
-  background: url('assets/img/') center / cover no-repeat;
 }
 .container {
   max-width: 100%; /* Ensure container takes full width */
@@ -25,4 +24,3 @@ main {
   max-width: 100%;
   height: auto;
 }
-
